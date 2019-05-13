@@ -1,0 +1,22 @@
+USE StudentInformationDatabase;  
+GO  
+IF EXISTS(SELECT*FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Student' AND COLUMN_NAME='StudentId')
+BEGIN
+EXEC sp_rename 'dbo.Student.Id', 'StudentId', 'COLUMN'
+END
+GO
+
+
+
+
+
+
+USE StudentInformationDatabase;  
+GO  
+IF EXISTS(SELECT*FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Student' AND COLUMN_NAME='Lname')
+BEGIN
+EXEC sp_rename 'dbo.Student.Lname', 'LastName', 'COLUMN'
+END
+ElSE
+Print 'Column Not Present';
+GO
